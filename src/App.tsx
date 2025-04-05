@@ -1,11 +1,11 @@
 import './App.css'
-import Plan from './components/plan'
+import MeterReader from './components/meterReader'
 
 function App() {
 
   return (
     <>
-      <Plan />
+      <MeterReader />
     </>
   )
 }

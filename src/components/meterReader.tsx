@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
-import readerService from '../services/readerService';
+import readerService from '../services/meterService';
+import { MeterData } from '../services/meterService';
 
-interface MeterData {
-  time: number;
-  reading: number;
-}
-
-function Plan() {
+function MeterReader() {
   const [selectedMeter, setSelectedMeter] = useState<string>('');
   const [meterData, setMeterData] = useState<MeterData[] | null>(null);
 
@@ -62,4 +58,4 @@ function Plan() {
   );
 }
 
-export default Plan;
+export default MeterReader;
