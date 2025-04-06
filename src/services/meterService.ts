@@ -5,10 +5,10 @@ export interface MeterData {
     reading: number;
   }
 
-  export interface MeterPostData {
-    smartMeterId: string;
-    electricityReadings: MeterData[];
-  }
+export interface MeterPostData {
+  smartMeterId: string;
+  electricityReadings: MeterData[];
+}
 
 const READER_API_BASE_URL = "/readings";
 
@@ -23,8 +23,8 @@ class meterService {
       }
     }
 
-    async storeMeter(): Promise<MeterPostData> {
-      const response = await ajax(`${READER_API_BASE_URL}/store`, "POST");
+    async storeMeter(meterPost: MeterPostData): Promise<MeterPostData> {
+      const response = await ajax(`${READER_API_BASE_URL}/store`, "POST", meterPost);
       if (response) {
         return response as MeterPostData;
       } else {

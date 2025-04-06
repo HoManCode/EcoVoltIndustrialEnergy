@@ -20,6 +20,12 @@ async function ajax<T>(url: string, requestMethod: string, requestBody?: unknown
         }
     }
 
+    if (!response.ok) {
+        const errorText = await response.text();
+        console.error(`Request failed (${response.status}): ${errorText}`);
+        throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
     return undefined;
 }
 

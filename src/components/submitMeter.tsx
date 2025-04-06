@@ -3,7 +3,7 @@ import readerService from '../services/meterService';
 import { MeterData } from '../services/meterService';
 import { meterIds } from '../constants';
 
-function MeterReader() {
+function SubmitMeter() {
   const [selectedMeter, setSelectedMeter] = useState<string>('');
   const [meterData, setMeterData] = useState<MeterData[] | null>(null);
 
@@ -24,7 +24,7 @@ function MeterReader() {
 
   return (
     <div>
-      <h2>Select a Meter</h2>
+      <h2>Submit a Meter</h2>
       <select value={selectedMeter} onChange={handleMeterChange}>
         <option value="">-- Select Meter --</option>
         {Object.entries(meterIds).map(([key, id]) => (
@@ -32,23 +32,16 @@ function MeterReader() {
             {key}
           </option>
         ))}
-      </select>
-
-      {meterData && (
+      </select> <br />
+      {selectedMeter && (
         <div>
-          <h3>Meter Readings</h3>
-          <ul>
-            {meterData.map((reading, index) => (
-              <li key={index}>
-                <strong>Time:</strong> {new Date(reading.time * 1000).toLocaleString()} <br />
-                <strong>Reading:</strong> {reading.reading.toFixed(4)}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+            <strong>Time:</strong>
+            <input></input><br/>
+            <strong>Reading:</strong>
+            <input></input>
+        </div>)}
     </div>
   );
 }
 
-export default MeterReader;
+export default SubmitMeter;
