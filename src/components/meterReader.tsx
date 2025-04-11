@@ -24,7 +24,7 @@ function MeterReader() {
 
   return (
     <div>
-      <h2>Select a Meter</h2>
+      <h2 className="text-lg font-bold mb-4">Select a Meter</h2>
       <select value={selectedMeter} onChange={handleMeterChange}>
         <option value="">-- Select Meter --</option>
         {Object.entries(meterIds).map(([key, id]) => (
